@@ -1,0 +1,14 @@
+
+
+{% if latest_student %}
+    <ul>
+    {% for x in latest_student %}
+        <li>
+            <!-- <a href="/register/{{ x.id }}/"> -->
+            <a href="{% url 'register:detail' x.id %}"></a>
+                {{ x.student_name }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

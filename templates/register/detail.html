@@ -1,0 +1,23 @@
+<!-- {{ x }} -->
+
+
+<!-- <h1>{{ x.student_name }}</h1>
+
+<ul>
+{% for y in x.school_set.all %}
+    <li>{{ y.school_name }}</li>
+{% endfor %}
+</ul> -->
+
+<form action="{% url 'register:vote' x.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h1>{{ x.student_name }}</h1>
+
+        {% for z in x.school_set.all %}
+            <input type="radio" name="z" id="z{{ forloop.counter }}" value="{{ z.id }}">
+            <label for="z{{ forloop.counter }}">{{ z.school_name }}</label>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="vote">
+</form>

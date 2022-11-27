@@ -1,0 +1,9 @@
+<h1>{{ x.student_name }}</h1>
+
+<ul>
+{% for y in x.school_set.all %}
+    <li>{{ y.school_name }} -- {{ y.choices }} vote{{ y.choices|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'register:detail' x.id %}">Vote again?</a>
